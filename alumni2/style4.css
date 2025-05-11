@@ -1,0 +1,156 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', sans-serif;
+}
+
+body {
+    display: flex;
+    background-color: #121212;
+    color: #ffffff;
+}
+
+.sidebar {
+    width: 220px;
+    background-color: #1e1e1e;
+    padding: 20px;
+    height: 100vh;
+    border-right: 1px solid #2c2c2c;
+}
+
+.logo {
+    color: #4f9df8;
+    margin-bottom: 20px;
+    font-size: 18px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.search-box {
+    width: 100%;
+    padding: 8px;
+    margin-bottom: 20px;
+    border: none;
+    border-radius: 5px;
+    background: #2a2a2a;
+    color: white;
+}
+
+.menu li {
+    list-style: none;
+    padding: 10px 0;
+    cursor: pointer;
+    color: #ccc;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.menu li:hover {
+    color: #4f9df8;
+}
+
+.main {
+    flex: 1;
+    padding: 20px;
+}
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.nav-links {
+    display: flex;
+    list-style: none;
+    gap: 20px;
+}
+
+.nav-links li {
+    padding: 10px 15px;
+    background: #2a2a2a;
+    border-radius: 10px;
+    cursor: pointer;
+    color: #ccc;
+}
+
+.nav-links .active {
+    background: #4f9df8;
+    color: white;
+}
+
+.profile-icon img {
+    width: 35px;
+    height: 35px;
+    border-radius: 50%;
+}
+
+.hero {
+    background: linear-gradient(to right, #1b59f8, #3b82f6);
+    color: white;
+    padding: 40px;
+    border-radius: 10px;
+    margin-bottom: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.hero-text h1 {
+    font-size: 32px;
+    font-weight: bold;
+}
+
+.hero-img img {
+    height: 100px;
+}
+
+.course-promo {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.course-promo h2 {
+    color: #ccc;
+}
+
+.course-promo button {
+    padding: 10px 20px;
+    background: #4f9df8;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    margin-top: 10px;
+}
+
+.courses {
+    display: flex;
+    gap: 20px;
+}
+
+.course-card {
+    flex: 1;
+    background: #1f1f1f;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0px 2px 10px rgba(0,0,0,0.3);
+    text-align: center;
+}
+
+.course-card img {
+    width: 60px;
+    margin-bottom: 15px;
+}
+
+.course-card h3 {
+    color: #fff;
+}
+
+.course-card p {
+    color: #bbb;
+}

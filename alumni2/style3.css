@@ -1,0 +1,116 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Segoe UI', sans-serif;
+}
+
+body {
+  position: relative;
+  height: 100vh;
+  /* background: url('https://images.unsplash.com/photo-1581092334554-1f31ea12663e?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80') no-repeat center center/cover; */
+  background-image: url('loginBackground.jpg');
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.background-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: radial-gradient(#FB37FF66 15%, #000000cc);
+  z-index: 0;
+}
+
+.container {
+  position: relative;
+  background: #000000cc;
+  padding: 30px;
+  border-radius: 10px;
+  width: 100%;
+  max-width: 400px;
+  box-shadow: 0 0 20px #FB37FF88;
+  z-index: 1;
+}
+
+h2 {
+  text-align: center;
+  margin-bottom: 20px;
+  color: whitesmoke;
+}
+
+form .input-group {
+  display: flex;
+  align-items: center;
+  margin-bottom: 15px;
+  background: #1e1e1e;
+  border-radius: 8px;
+  padding: 10px;
+  transition: transform 0.2s ease;
+}
+
+form .input-group:hover {
+  transform: scale(1.02);
+}
+
+form .input-group i {
+  color: #FB37FF;
+  margin-right: 10px;
+  font-size: 18px;
+}
+
+form input {
+  width: 100%;
+  border: none;
+  background: transparent;
+  outline: none;
+  color: white;
+  font-size: 16px;
+}
+
+form input::placeholder {
+  color: #aaa;
+}
+
+button {
+  width: 100%;
+  padding: 12px;
+  background-color: #FB37FF;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: transform 0.3s, background 0.3s;
+}
+
+button:hover {
+  background-color: #d02edb;
+  transform: translateY(-2px);
+}
+
+.next-button-container {
+  margin-top: 20px;
+  z-index: 1;
+}
+
+.next-button {
+  display: inline-block;
+  padding: 12px 20px;
+  background-color: #381139;
+  color: white;
+  text-decoration: none;
+  border-radius: 6px;
+  font-size: 16px;
+  transition: background 0.3s, transform 0.3s;
+}
+
+.next-button:hover {
+  background-color: #6c1b6c;
+  transform: translateX(5px);
+}
