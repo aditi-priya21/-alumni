@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Message Alumni</title>
+    <link rel="stylesheet" href="style2.css">
+    <style>
+        .message-container {
+            max-width: 600px;
+            margin: 50px auto;
+            padding: 20px;
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        }
+        .alumni-info {
+            margin-bottom: 20px;
+            padding: 15px;
+            background: #f5f5f5;
+            border-radius: 5px;
+        }
+        .message-form {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+        textarea {
+            width: 100%;
+            min-height: 150px;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            resize: vertical;
+        }
+        .send-button {
+            background: #4CAF50;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        .send-button:hover {
+            background: #45a049;
+        }
+    </style>
+</head>
+<body>
+    <div class="message-container">
+        <div class="alumni-info">
+            <h2 id="alumniName"></h2>
+            <p id="alumniPosition"></p>
+        </div>
+        <form id="messageForm" class="message-form">
+            <textarea id="message" placeholder="Type your message here..." required></textarea>
+            <button type="submit" class="send-button">Send Message</button>
+        </form>
+    </div>
+
+    <script src="auth.js"></script>
+    <script>
+        // Get alumni info from URL parameters
+        const urlParams = new URLSearchParams(window.location.search);
+        const alumniName = urlParams.get('name');
+        const alumniPosition = urlParams.get('position');
+        const alumniEmail = urlParams.get('email');
+
+        // Display alumni info
+        document.getElementById('alumniName').textContent = alumniName;
+        document.getElementById('alumniPosition').textContent = alumniPosition;
+
+        // Handle message submission
+        document.getElementById('messageForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            if (!isLoggedIn()) {
+                alert('Please login to send messages');
+                window.location.href = 'index2.html';
+                return;
+            }
+
+            const message = document.getElementById('message').value;
+            const currentUser = JSON.parse(localStorage.getItem('currentUser'));
+
+            // Store message in localStorage
+            const messages = JSON.parse(localStorage.getItem('messages')) || [];
+            messages.push({
+                from: currentUser.email,
+                to: alumniEmail,
+                message: message,
+                timestamp: new Date().toISOString()
+            });
+            localStorage.setItem('messages', JSON.stringify(messages));
+
+            // In a real application, you would send this to a server
+            // For now, we'll just show a success message
+            alert('Message sent successfully!');
+            window.location.href = 'index.html';
+        });
+    </script>
+</body>
+</html> 

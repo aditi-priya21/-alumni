@@ -15,6 +15,7 @@ body {
   overflow-y: auto;
   overflow-x: hidden;
   background-color: #1F1D2B;
+  min-height: 100vh;
 }
 .landingpage::before {
   content: "";
@@ -439,18 +440,29 @@ body {
   display: flex;
   flex-direction: column;
   justify-self: center;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 15px;
+  padding: 15px;
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+.item:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+  background: rgba(255, 255, 255, 0.1);
 }
 .item-img {
   object-fit: cover;
   flex-shrink: 0;
-  width: 200px;
+  width: 100%;
   height: 220px;
   border-radius: 10px;
-  transition: 0.3s;
-  cursor: pointer;
+  transition: transform 0.3s ease;
 }
-.item-img:hover {
-  transform: scale(1.05);
+.item:hover .item-img {
+  transform: scale(1.02);
 }
 .item-title {
   display: flex;
@@ -510,46 +522,65 @@ body {
   margin-right: 5px;
 }
 
+.user-name {
+  color: #333;
+  margin-right: 15px;
+  font-weight: 500;
+}
+
+.logout-btn {
+  background: #ff4444;
+  color: white;
+  border: none;
+  padding: 8px 15px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.logout-btn:hover {
+  background: #cc0000;
+}
+
 @media screen and (max-width: 1500px) {
   .landingpage {
     max-width: 1200px;
+    padding: 0 40px;
   }
 }
 @media screen and (max-width: 1040px) {
   .box {
     flex-direction: column;
+    gap: 40px;
   }
   .box .infobox {
-    max-height: 450px;
-    max-width: none;
-    margin-bottom: 50px;
+    max-height: none;
+    max-width: 100%;
+    margin-bottom: 0;
+    text-align: center;
+  }
+  .box .infobox-boldtext {
+    font-size: 48px;
+    line-height: 1.2;
   }
   .box .display {
     display: none;
-    max-height: none;
-    max-width: none;
   }
-
   .auction .nft {
-    grid-template-columns: auto auto;
-    justify-content: space-around;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 30px;
   }
-
   .discover-items {
-    grid-template-columns: auto auto auto;
-    justify-content: space-around;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 30px;
   }
-
   .footer {
     flex-direction: column;
+    gap: 40px;
   }
   .footer-main {
-    max-width: 80%;
-    margin-bottom: 50px;
+    max-width: 100%;
     text-align: center;
-  }
-  .footer-navigate .nav:first-child {
-    margin: 0;
   }
 }
 @media screen and (max-width: 925px) {
@@ -589,29 +620,45 @@ body {
   }
 }
 @media screen and (max-width: 768px) {
-  .box {
-    flex-direction: column;
+  .landingpage {
+    padding: 0 20px;
   }
-  .box .infobox {
-    max-height: none;
-    max-width: none;
-    margin-bottom: 50px;
+  .navbar {
+    padding: 15px 0;
   }
-  .box .display {
-    display: block;
-    max-height: none;
-    max-width: none;
+  .box .infobox-boldtext {
+    font-size: 36px;
   }
-
+  .box .infobox-slimtext {
+    font-size: 14px;
+  }
+  .auction .title .titlebold {
+    font-size: 32px;
+  }
+  .started-boldtext {
+    font-size: 32px;
+  }
+  .started-slimtext {
+    font-size: 16px;
+  }
+  .started-items {
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    padding: 40px 20px;
+  }
+  .footer-navigate {
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 30px;
+  }
+  .footer-navigate .nav {
+    margin: 0;
+    text-align: center;
+  }
   .discover-title {
     justify-content: center;
   }
   .discover-title .filters {
     display: none;
-  }
-
-  .auction .title {
-    justify-content: center;
   }
   .auction .title .titleslim {
     display: none;
@@ -667,15 +714,28 @@ body {
 }
 @media screen and (max-width: 480px) {
   .landingpage .box .infobox-boldtext {
-    font-size: 32px;
-    line-height: 1.4em;
-    text-align: center;
+    font-size: 28px;
   }
   .landingpage .box .infobox-slimtext {
     text-align: center;
   }
   .landingpage .box .infobox-btnwrapper {
     justify-content: center;
+  }
+  .auction .title .titlebold {
+    font-size: 24px;
+  }
+  .started-boldtext {
+    font-size: 24px;
+  }
+  .started-slimtext {
+    font-size: 14px;
+  }
+  .item {
+    padding: 10px;
+  }
+  .item-img {
+    height: 180px;
   }
 }
 @keyframes leftslide {
